@@ -1,5 +1,6 @@
 package org.example.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.data.annotation.Id
 import org.springframework.data.neo4j.core.schema.Node
 import org.springframework.data.neo4j.core.schema.Relationship
@@ -19,7 +20,9 @@ data class User(
     @field:NotBlank val name: Name,
     @field:Past val birthdate: LocalDate,
     @field:NotEmpty val interests: List<String>,
-    @Relationship(type = "FRIENDS", direction = Direction.OUTGOING)
+
+    @Relationship(type = "FRIENDS", direction = Relationship.Direction.OUTGOING)
+    @JsonIgnore
     val friends: MutableSet<User> = mutableSetOf()
 )
 

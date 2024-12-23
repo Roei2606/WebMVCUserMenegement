@@ -2,10 +2,9 @@ package org.example.model
 
 import java.time.LocalDate
 
-data class UserDTO(
+data class FriendDTO(
     val email: String,
-    val name: Name,
+    val name: String,
     val birthdate: LocalDate,
     val interests: List<String>
 )
-
